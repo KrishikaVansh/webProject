@@ -1,0 +1,294 @@
+/* =========================
+   Theme variables
+   ========================= */
+:root{
+  --bg: #F7FBFF;
+  --card: #FFFFFF;
+  --primary: #6CA6FF;
+  --primary-600: #4E8DF5;
+  --accent: #BFA8FF;
+  --muted: #94A3B8;
+  --muted-2: #6B7280;
+  --text: #243240;
+  --glass: rgba(255,255,255,0.85);
+  --shadow: 0 8px 30px rgba(36,50,64,0.06);
+  --radius: 12px;
+  --max-width: 1100px;
+  --gap: 16px;
+}
+
+/* =========================
+   Reset & base
+   ========================= */
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg), #FCFEFF 300px);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.45;
+}
+
+/* container */
+.container {
+  max-width: var(--max-width);
+  margin: 20px auto;
+  padding: 0 18px;
+}
+
+/* =========================
+   Navigation
+   ========================= */
+.nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 20px;
+  gap: 12px;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.nav-left a { text-decoration:none; color:var(--text); font-weight:700; font-size:1.1rem; }
+.nav-right {
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.nav-right a {
+  color:var(--text);
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:8px;
+  transition: background .16s, color .16s, transform .06s;
+}
+.nav-right a:hover { background: rgba(108,166,255,0.08); transform:translateY(-1px); }
+
+/* ghost button within nav */
+.btn-ghost {
+  background:transparent;
+  border:1px solid rgba(36,50,64,0.06);
+  padding:7px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  color:var(--text);
+}
+.btn-ghost:hover { background: rgba(36,50,64,0.04); transform: translateY(-1px); }
+
+/* =========================
+   Card & utility
+   ========================= */
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: var(--gap) 0;
+}
+
+.auth-card {
+  max-width: 480px;
+  margin: 48px auto;
+  padding: 26px;
+  text-align: left;
+}
+
+.form {
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form select,
+.form textarea,
+.form input[type="number"] {
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6ecf5;
+  background: linear-gradient(180deg,#fff,#fbfdff);
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+  outline: none;
+  transition: box-shadow .12s, border-color .12s, transform .06s;
+  font-size: 15px;
+  color: var(--text);
+  resize: vertical;
+}
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  border-color: var(--primary-600);
+  box-shadow: 0 6px 20px rgba(108,166,255,0.08);
+  transform: translateY(-1px);
+}
+
+.form label { font-size: 0.95rem; color: var(--muted-2); }
+
+/* Buttons */
+.btn {
+  display:inline-block;
+  background: var(--primary);
+  color:white;
+  border:none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(108,166,255,0.18);
+  transition: transform .12s, box-shadow .12s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* small secondary button */
+.btn-small {
+  padding: 6px 10px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+
+/* text helpers */
+.muted { color: var(--muted-2); font-size: 0.95rem; }
+.center { text-align:center; }
+
+/* grid utilities */
+.grid { display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.mini-card {
+  padding:12px;
+  border-radius:10px;
+  background: linear-gradient(180deg,#FFFFFF,#FBFEFF);
+  box-shadow: 0 6px 18px rgba(36,50,64,0.04);
+}
+
+/* =========================
+   Pages: Client / Therapist dashboards
+   ========================= */
+h1 { margin: 8px 0 12px 0; font-size: 1.4rem; }
+h2 { margin: 6px 0 12px 0; }
+h3 { margin: 8px 0; font-size: 1rem; color:var(--text); }
+
+.card-list { display:flex; flex-direction:column; gap:12px; }
+
+/* appointment list style */
+.appointment-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.appointment-list li {
+  display:flex; align-items:center; justify-content:space-between;
+  background: linear-gradient(180deg,#fff,#fbfdff);
+  padding:10px 12px; border-radius:10px; border:1px solid #eef3fb;
+}
+.appointment-time { font-weight:600; color:var(--primary-600); }
+.appointment-meta { color:var(--muted-2); font-size:0.95rem; }
+
+/* =========================
+   Mood tracker
+   ========================= */
+.mood-container .muted { margin-top: 6px; }
+
+.range {
+  -webkit-appearance: none;
+  width:100%;
+  height:8px;
+  border-radius:10px;
+  background: linear-gradient(90deg, #e6f0ff, #dfeefd);
+  outline:none;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance:none; width:20px; height:20px; border-radius:50%;
+  background: var(--primary-600); box-shadow:0 6px 14px rgba(108,141,255,0.25);
+}
+
+/* chart container */
+.chart-wrapper { width:100%; height:260px; }
+
+/* entries list */
+ul { padding-left: 16px; margin: 8px 0; }
+li { margin: 6px 0; }
+
+/* =========================
+   Journal
+   ========================= */
+.entry { margin-bottom: 12px; padding: 12px; border-radius: 10px; background: #fbfdff; box-shadow: 0 6px 18px rgba(36,50,64,0.03); }
+.entry h4 { margin: 0 0 6px 0; }
+.entry-actions { margin-top:8px; }
+
+/* ReactQuill tweaks */
+.ql-container { border-radius: 10px; border: 1px solid #eef3fb; }
+.ql-editor { min-height: 160px; }
+
+/* =========================
+   Resources
+   ========================= */
+.resource-card { padding:14px; display:flex; flex-direction:column; gap:8px; }
+.resource-card h3 { margin:0; }
+.resource-card p { margin:0; color:var(--muted-2); }
+.resource-card a { margin-top:auto; align-self:flex-start; }
+
+/* =========================
+   Appointments page
+   ========================= */
+.availability-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.availability-list li { padding:8px 10px; border-radius:8px; background:#fff; border:1px solid #f0f4fb; display:flex; justify-content:space-between; align-items:center; }
+
+/* =========================
+   Misc small components
+   ========================= */
+.mini {
+  display:inline-block; padding:6px 10px; border-radius:8px; background:var(--accent); color:#fff; font-weight:600;
+}
+
+/* =========================
+   Responsive / layout tweaks
+   ========================= */
+@media (min-width: 880px) {
+  .container { padding: 0; }
+  .two-col { display:grid; grid-template-columns: 1fr 320px; gap:16px; }
+}
+
+@media (max-width: 880px) {
+  .nav-right { display:none; } /* hide nav items on small screens (you can add a mobile menu later) */
+  .auth-card { margin: 24px 14px; }
+}
+
+/* =========================
+   Utility: small form rows
+   ========================= */
+.row { display:flex; gap:12px; align-items:center; }
+.row .col { flex:1; }
+
+/* =========================
+   Alerts / messages
+   ========================= */
+.alert {
+  padding:12px 14px; border-radius:10px; background: linear-gradient(180deg,#fff6f9,#fff); border:1px solid rgba(255,150,150,0.08);
+  color:#b02a37;
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer.footer {
+  margin-top:40px;
+  padding:18px;
+  text-align:center;
+  color:var(--muted-2);
+  font-size:0.95rem;
+}
+
+/* =========================
+   Small polish
+   ========================= */
+a { color: var(--primary-600); text-decoration:none }
+a:hover { text-decoration: underline; }
+kbd { background:#f3f4f6; padding:4px 6px; border-radius:6px; font-size:0.9rem; }
+
+/* =========================
+   End of styles
+   ========================= */
